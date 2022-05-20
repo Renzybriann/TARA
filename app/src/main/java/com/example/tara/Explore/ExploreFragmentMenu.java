@@ -28,7 +28,6 @@ import java.util.ArrayList;
 
 import android.os.Handler;
 
-
 public class ExploreFragmentMenu extends Fragment implements RecyclerViewInterface {
 
     RecyclerView recyclerView;
@@ -52,7 +51,6 @@ public class ExploreFragmentMenu extends Fragment implements RecyclerViewInterfa
         database = FirebaseDatabase.getInstance(databaseLocation).getReference("vehicle");
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         list = new ArrayList<>();
-
 
         swipeRefreshLayout = view.findViewById(R.id.swipeRefresh);
         searchView = view.findViewById(R.id.searchView);
