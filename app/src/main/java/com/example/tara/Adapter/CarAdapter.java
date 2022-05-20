@@ -1,5 +1,6 @@
 package com.example.tara.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,18 +18,25 @@ import com.example.tara.Main.RecyclerViewInterface;
 import com.example.tara.Models.Car;
 import com.example.tara.R;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
 public class CarAdapter extends RecyclerView.Adapter<CarAdapter.MyViewHolder>{
     private final RecyclerViewInterface recyclerViewInterface;
-    private final int lastPosition = -1;
     Context context;
-
     ArrayList<Car> list;
+//    String[] carId, uId;
 
+//    String databaseLocation = "https://tara-f89da-default-rtdb.asia-southeast1.firebasedatabase.app/";
+//    DatabaseReference ref = FirebaseDatabase.getInstance(databaseLocation).getReference();
+
+//, String[] carId, String[] uId
+    @SuppressLint("NotifyDataSetChanged")
     public void setFilteredList(ArrayList<Car> filteredList){
         this.list=filteredList;
+//        this.carId = carId;
+//        this.uId = uId;
         notifyDataSetChanged();
     }
 

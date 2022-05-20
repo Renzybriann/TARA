@@ -47,6 +47,7 @@
         <entry key="..\:/Users/kierm/AndroidStudioProjects/TARA/app/src/main/res/drawable-v24/corner_radius.xml" value="0.1" />
         <entry key="..\:/Users/kierm/AndroidStudioProjects/TARA/app/src/main/res/drawable/bottom_border.xml" value="0.2465" />
         <entry key="..\:/Users/kierm/AndroidStudioProjects/TARA/app/src/main/res/drawable/et_background.xml" value="0.272" />
+        <entry key="..\:/Users/kierm/AndroidStudioProjects/TARA/app/src/main/res/drawable/ic_legal.xml" value="0.205" />
         <entry key="..\:/Users/kierm/AndroidStudioProjects/TARA/app/src/main/res/drawable/textbox.xml" value="0.2585" />
         <entry key="..\:/Users/kierm/AndroidStudioProjects/TARA/app/src/main/res/drawable/top_bot_border.xml" value="0.2465" />
         <entry key="..\:/Users/kierm/AndroidStudioProjects/TARA/app/src/main/res/layout-v28/activity_info.xml" value="0.36666666666666664" />
@@ -65,8 +66,10 @@
         <entry key="..\:/Users/kierm/AndroidStudioProjects/TARA/app/src/main/res/layout/activity_location.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/kierm/AndroidStudioProjects/TARA/app/src/main/res/layout/activity_login.xml" value="0.34717948717948716" />
         <entry key="..\:/Users/kierm/AndroidStudioProjects/TARA/app/src/main/res/layout/activity_more_details.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/kierm/AndroidStudioProjects/TARA/app/src/main/res/layout/activity_payment.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/kierm/AndroidStudioProjects/TARA/app/src/main/res/layout/activity_pricing.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/kierm/AndroidStudioProjects/TARA/app/src/main/res/layout/activity_protection.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/kierm/AndroidStudioProjects/TARA/app/src/main/res/layout/activity_receipt.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/kierm/AndroidStudioProjects/TARA/app/src/main/res/layout/activity_safeguard.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/kierm/AndroidStudioProjects/TARA/app/src/main/res/layout/activity_signup.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/kierm/AndroidStudioProjects/TARA/app/src/main/res/layout/activity_traansaction_history.xml" value="0.27037037037037037" />

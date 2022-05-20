@@ -34,11 +34,12 @@ public class ExploreFragmentMenu extends Fragment implements RecyclerViewInterfa
     RecyclerView recyclerView;
     DatabaseReference database;
     CarAdapter myAdapter;
-    ArrayList<Car> list;
+    ArrayList<Car> list, filteredList;
     SwipeRefreshLayout swipeRefreshLayout;
-    String carId,uId;
+    String carId,uId,search;
     DataSnapshot dataSnapshot;
     SearchView searchView;
+    Boolean isFiltered;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,12 +47,13 @@ public class ExploreFragmentMenu extends Fragment implements RecyclerViewInterfa
         View view = inflater.inflate(R.layout.fragment_explore, container, false);
 
         String databaseLocation = getString(R.string.databasePath);
+        isFiltered = false;
         recyclerView = view.findViewById(R.id.carListRV);
         database = FirebaseDatabase.getInstance(databaseLocation).getReference("vehicle");
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         list = new ArrayList<>();
-        myAdapter = new CarAdapter(getContext(),list,this);
-        recyclerView.setAdapter(myAdapter);
+
+
         swipeRefreshLayout = view.findViewById(R.id.swipeRefresh);
         searchView = view.findViewById(R.id.searchView);
         searchView.setFocusable(false);
@@ -64,10 +66,15 @@ public class ExploreFragmentMenu extends Fragment implements RecyclerViewInterfa
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                filterList(newText);
+                search = newText;
+                filterList(search);
+                isFiltered = true;
                 return true;
             }
         });
+
+        myAdapter = new CarAdapter(getContext(),list,this);
+        recyclerView.setAdapter(myAdapter);
 
         database.addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
@@ -80,14 +87,11 @@ public class ExploreFragmentMenu extends Fragment implements RecyclerViewInterfa
                         Car car = dataSnapshot1.getValue(Car.class);
                         list.add(car);
                     }
-
                 }
                 myAdapter.notifyDataSetChanged();
             }
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
+            public void onCancelled(@NonNull DatabaseError error) { }
         });
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -111,9 +115,7 @@ public class ExploreFragmentMenu extends Fragment implements RecyclerViewInterfa
                                 myAdapter.notifyDataSetChanged();
                             }
                             @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-
-                            }
+                            public void onCancelled(@NonNull DatabaseError error) { }
                         });
                         swipeRefreshLayout.setRefreshing(false);
                     }
@@ -124,8 +126,10 @@ public class ExploreFragmentMenu extends Fragment implements RecyclerViewInterfa
     }
 
     private void filterList(String newText) {
-        ArrayList<Car> filteredList = new ArrayList<>();
+        filteredList = new ArrayList<>();
+
         database.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 filteredList.clear();
@@ -154,9 +158,9 @@ public class ExploreFragmentMenu extends Fragment implements RecyclerViewInterfa
                         }
                     }
                     myAdapter.setFilteredList(filteredList);
+                    myAdapter.notifyDataSetChanged();
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }

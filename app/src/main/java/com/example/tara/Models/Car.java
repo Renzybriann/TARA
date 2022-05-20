@@ -1,16 +1,16 @@
 package com.example.tara.Models;
 
 public class Car  {
-    public String exterior1Url, bmy, location, priceRate, userId;
+    public String exterior1Url, bmy, location, priceRate, userId, carId;
 
     Car(){ }
 
-    public Car(String exterior1Url, String bmy, String location, String priceRate, String userId){
+    public Car(String exterior1Url, String bmy, String location, String priceRate){
         this.exterior1Url = exterior1Url;
         this.bmy = bmy;
         this.location = location;
         this.priceRate = priceRate;
-        this.userId = userId;
+        this.carId =carId;
     }
 
 
@@ -30,7 +30,4 @@ public class Car  {
         return priceRate;
     }
 
-    public String getUserId() {
-        return userId;
-    }
 }
